@@ -36,6 +36,9 @@
 						},
 						opposite: false,
 					},
+					credits: {
+						enabled: false
+					},
 					series: [{
 						name: '平均気温',
 						type: 'column',
