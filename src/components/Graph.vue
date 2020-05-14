@@ -1,5 +1,7 @@
 <template>
-	<highcharts :options="graph"></highcharts>
+	<div>
+		<highcharts :options="graph"></highcharts>
+	</div>
 </template>
 
 <script lang="ts">
@@ -55,3 +57,11 @@
 		}
 	}
 </script>
+
+<style>
+	div {
+		width: 80%;
+		height: auto;
+		margin: 20px auto auto auto;
+	}
+</style>
