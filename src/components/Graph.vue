@@ -39,12 +39,15 @@
 					credits: {
 						enabled: false
 					},
+					tooltip: {
+						pointFormat: '{series.name}：{point.y:.1f} ℃'
+					},
 					series: [{
 						name: '平均気温',
 						type: 'column',
 						data: [5.6, 7.2, 10.6, 13.6, 20.0, 21.8, 24.1, 28.4, 25.1, 19.4, 13.1, 8.5],
 						marker: {
-							enabled: false
+							enabled: true
 						},
 					}],
 				}
