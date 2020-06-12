@@ -2,16 +2,16 @@
   <div class="graph">
     <div class="buttons">
       <p>
-        <button @click="viewGraph('column')">縦棒グラフ</button>
+        <b-button variant="outline-secondary" @click="viewGraph('column')">縦棒グラフ</b-button>
       </p>
       <p>
-        <button @click="viewGraph('bar')">横棒グラフ</button>
+        <b-button variant="outline-secondary" @click="viewGraph('bar')">横棒グラフ</b-button>
       </p>
       <p>
-        <button @click="viewGraph('line')">線グラフ</button>
+        <b-button variant="outline-secondary" @click="viewGraph('line')">線グラフ</b-button>
       </p>
       <p>
-        <button @click="viewGraph('pie')">円グラフ</button>
+        <b-button variant="outline-secondary" @click="viewGraph('pie')">円グラフ</b-button>
       </p>
     </div>
     <div id="graph">表示したいグラフを選択してください。</div>
