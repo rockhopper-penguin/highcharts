@@ -2,28 +2,37 @@
   <div class="graph">
     <div class="buttons">
       <p>
-        <button @click="viewGraph()">グラフを表示</button>
+        <button @click="viewGraph('column')">縦棒グラフ</button>
+      </p>
+      <p>
+        <button @click="viewGraph('bar')">横棒グラフ</button>
+      </p>
+      <p>
+        <button @click="viewGraph('line')">線グラフ</button>
+      </p>
+      <p>
+        <button @click="viewGraph('pie')">円グラフ</button>
       </p>
     </div>
-    <div id="graph">グラフが表示されます</div>
+    <div id="graph">表示したいグラフを選択してください。</div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import * as Highcharts from "highcharts";
+import Datas from "@/store/index";
 
 @Component
 export default class Graph extends Vue {
-  array: number[] = [];
-  categories: string[] = [
-    "A", "B", "C", "D"
-  ];
-
-  viewGraph() {
-    this.array = [];
+  public get Data() {
+    return Datas.state;
+  }
+  viewGraph(graphType: string) {
+    this.Data.array = [];
+    this.Data.graphType = graphType;
     for (let i = 0; i < 4; i++) {
-      this.array.push(Math.round(Math.random() * 100));
+      this.Data.array.push(Math.round(Math.random() * 100));
     }
     this.graph();
   }
@@ -32,14 +41,14 @@ export default class Graph extends Vue {
     Highcharts.chart({
       chart: {
         renderTo: "graph",
-        type: "column"
+        type: this.Data.graphType
       },
       credits: {
         enabled: false
       },
       title: false as Highcharts.TitleOptions,
       xAxis: {
-        categories: this.categories,
+        categories: this.Data.categories,
         crosshair: true
       } as Highcharts.XAxisOptions,
       yAxis: {
@@ -52,8 +61,8 @@ export default class Graph extends Vue {
       series: [
         {
           name: "test",
-          type: "column",
-          data: this.array
+          type: this.Data.graphType,
+          data: this.Data.array
         }
       ]
     });
