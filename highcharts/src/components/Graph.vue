@@ -44,7 +44,8 @@ export default class Graph extends Vue {
         type: this.Data.graphType
       },
       credits: {
-        enabled: false
+        text: 'Rockhopper-Penguin',
+        href: 'https://github.com/rockhopper-penguin'
       },
       title: false as Highcharts.TitleOptions,
       xAxis: {
