@@ -70,6 +70,3 @@ export default class Graph extends Vue {
   }
 }
 </script>
-
-<style>
-</style>
