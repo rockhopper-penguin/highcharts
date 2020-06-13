@@ -8,14 +8,12 @@ const graphType: any = "line";
 const categories: string[] = [
   "A", "B", "C", "D"
 ];
-const arrays: any[] = [];
 
 export default new Vuex.Store({
   state: {
     array,
     graphType,
     categories,
-    arrays
   },
   mutations: {},
   actions: {},
